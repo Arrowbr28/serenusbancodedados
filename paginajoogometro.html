@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--CSS BOODSTRAP-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!--CSS-->
+<link rel="stylesheet" href="./CSS/index.css">
+
+<link rel="stylesheet" href="styleblogansiedade.css">
+
+<!--IMAGEM NA ABA DO NAVEGADOR-->
+<link rel="icon" href="./IMG/SerenusLetra.ico" type="image/x-icon">
+
+<script src="https://pixijs.download/release/pixi.min.js"></script>
+
+  <style>
+    h1{
+      transition: all .2s ease-in-out;
+      animation-name: animacaotexto;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes animacaotexto {
+      0% {font-size: 20px;}
+      25% {font-size: 32px;}
+      50% {font-size: 38px;}
+      100% {font-size: 20px;}
+    }
+  </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="./IMG/serenus.png" alt="Logo do Serenus">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end text" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="./IMG/serenus.png" alt="Logo da Serenus"></h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Exercicios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mais Opções
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sobre o Serenus</a></li>
+                        <li><a class="dropdown-item" href="#">Profissionais</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Avaliações e Ajudas</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Psicologo..." aria-label="Search">
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="canvas"></div>
+        <div class="row" style="margin-top: 150px">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4"><h1 style="font-size: 30px">Agora está tocando....</h1><p style="font-size: 30px">Lofi no copyright musics - Lofi</p></div>
+            <div class="col-sm-1"></div>
+            <img style="width: 100%" src="https://img.freepik.com/free-photo/anime-moon-landscape_23-2151645804.jpg?t=st=1728044520~exp=1728048120~hmac=b16c17c5aae02a82c9b68b423bdbc42913044fbc7c91022c21d83c8ff227ab4f&w=1060" alt="teste">
+          </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module">
+      // Create the application helper and add its render target to the page
+      const app = new PIXI.Application();
+      await app.init({ width: 900, height: 1600 })
+      document.body.appendChild(app.canvas);
+
+      // Create the sprite and add it to the stage
+      await PIXI.Assets.load('C:/Users/0220832311006/Desktop/SerenusNovo melhorado demais/IMG/animemoon.jpg');
+      let sprite = PIXI.Sprite.from('C:/Users/0220832311006/Desktop/SerenusNovo melhorado demais/Sprites/flatboy/png/Idle (1).png');
+      app.stage.addChild(sprite);
+
+      // Add a ticker callback to move the sprite back and forth
+      let elapsed = 0.0;
+      app.ticker.add((ticker) => {
+        elapsed += ticker.deltaTime;
+        sprite.x = 100.0 + Math.cos(elapsed/50.0) * 100.0;
+      });
+    </script>
+</body>
+</html>

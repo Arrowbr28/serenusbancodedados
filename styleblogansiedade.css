@@ -1,0 +1,24 @@
+#imagem1{
+    width: 190%;
+    height: 100%;
+}
+
+#propaganda1{
+    width: 50%;
+    height: 80%;
+}
+
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+    height: 500px;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 30px;
+    padding: 20px;
+    font-size: 30px;
+    height: 300px;
+    width: 300px;
+  }
