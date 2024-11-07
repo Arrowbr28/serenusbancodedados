@@ -1,3 +1,17 @@
+<?php 
+session_start(); 
+
+var_dump($_SESSION);
+
+// Verifique se a sessão do usuário está ativa
+if (!isset($_SESSION['user_name'])) {
+    // Caso o usuário não esteja logado, redirecione para a página de login
+    header("Location: ./Loginusuario.php");
+    exit();
+}
+
+$user_name = $_SESSION['user_name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,10 +127,11 @@
             <div class="col-sm-4"><h1>Pagina usuario</h1></div>
             <div class="col-sm-1"></div>
       </div>
+      
         <div class="row">
             <div class="col-sm-3"><img style="width: 100%" src="https://icons.iconarchive.com/icons/tonev/windows-7/256/windows-7-user-icon.png" alt=""></div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-6"><h2>Nome</h2><h3>Email</h3><h4>senha</h4></div>
+            <div class="col-sm-6"><h2 style="color: black"><?php echo $user_name; ?></h2><h3>Email</h3><h4>senha</h4></div>
         </div>
         <div class="row">
             <div class="col-sm-4"></div>

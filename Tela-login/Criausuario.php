@@ -24,7 +24,7 @@ $result=$conn->query($sql);
 
 if ($conn->query($sql) === TRUE) { 
   session_start();
-  header("Location: ./paginausuario.html");
+  header("Location: ./paginausuario.php");
   exit();
 } else { 
   echo "Erro: " . $sql . "<br>" . $conn->error;
